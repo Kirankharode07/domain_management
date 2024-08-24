@@ -1,0 +1,31 @@
+<div class="domain-container">
+  <h2>Add Domain</h2>
+  <form (ngSubmit)="onAddDomain()">
+    <div class="form-group">
+      <label for="name">Domain Name:</label>
+      <input type="text" id="name" [(ngModel)]="domain.name" name="name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="createdOn">Created On:</label>
+      <input type="date" id="createdOn" [(ngModel)]="domain.createdOn" name="createdOn" required>
+    </div>
+
+    <div class="form-group">
+      <label for="status">Status:</label>
+      <select id="status" [(ngModel)]="domain.status" name="status" required>
+        <option value="" disabled>Select Status</option>
+        <option>Active</option>
+        <option>Expired</option>
+        <option>Inactive</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="serverLocation">Server Location:</label>
+      <input type="text" id="serverLocation" [(ngModel)]="domain.serverLocation" name="serverLocation" required>
+    </div>
+
+    <button type="submit" class="submit-btn">Add Domain</button>
+  </form>
+</div>

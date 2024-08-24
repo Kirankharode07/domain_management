@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="header">
+    <h2>Manage <span>Domains</span></h2>
+    <div class="search-bar">
+      <input type="text" placeholder="Search Domains..." [(ngModel)]="searchText" />
+      <button><i class="fas fa-search"></i></button>
+    </div>
+    <button class="add-domain-btn" (click)="onAddDomain()"><i class="fas fa-plus"></i> Add Domain</button>
+  </div>
+
+  <div class="filter">
+    <label><input type="radio" name="status" value="All" (change)="filterDomains($event)" checked> All</label>
+    <label><input type="radio" name="status" value="Active" (change)="filterDomains($event)"> Active</label>
+    <label><input type="radio" name="status" value="Inactive" (change)="filterDomains($event)"> Inactive</label>
+    <label><input type="radio" name="status" value="Expired" (change)="filterDomains($event)"> Expired</label>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Domain</th>
+        <th>Created On</th>
+        <th>Status</th>
+        <th>Server Location</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let domain of getFilteredDomains(); let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ domain.name }}</td>
+        <td>{{ domain.createdOn }}</td>
+        <td><span class="status {{ domain.status.toLowerCase() }}">{{ domain.status }}</span></td>
+        <td>{{ domain.serverLocation }}</td>
+        <td>
+          <button class="edit-btn" (click)="onEditDomain(domain.id)">Edit</button>
+          <button class="delete-btn" (click)="onDeleteDomain(domain.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

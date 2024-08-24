@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="wrapper">
+    <div class="title"><span>Login Form</span></div>
+    <form (ngSubmit)="onLogin()">
+      <div class="row">
+        <i class="fas fa-user"></i>
+        <input type="text" placeholder="Username" [(ngModel)]="username" name="username" required>
+      </div>
+      <div class="row">
+        <i class="fas fa-lock"></i>
+        <input type="password" placeholder="Password" [(ngModel)]="password" name="password" required>
+      </div>
+      <div class="row button">
+        <input type="submit" value="Login">
+      </div>
+    </form>
+  </div>
+</div>
